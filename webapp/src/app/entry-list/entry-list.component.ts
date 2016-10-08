@@ -49,7 +49,7 @@ export class EntryListComponent implements OnInit {
 	}
 
 	getFormattedText(entry: Entry) {
-		Utils.highlightTextFromData(entry);
+		return Utils.highlightTextFromData(entry);
 	}
 
 }
