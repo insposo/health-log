@@ -9,13 +9,32 @@ export class Utils {
 		const highlightStart = '<em class="text-highlight">';
 		const highlightEnd = '</em>';
 
-		let result = entry.text;
-		for(let finding in entry.data) {
-			let position = entry.data.range;
-			result = [result.slice(0, position[0]), highlightStart, result.slice(position[0])].join('');
-			result = [result.slice(0, position[1]), highlightEnd, result.slice(position[1])].join('');
+		let replacements = [];
+		let result = '';
+
+		for (let finding of entry.data) {
+			let position = finding['range'];
+			replacements = replacements.concat(position);
 		}
 
+		replacements.sort(Utils.sortNumber);
+
+		let index = 0;
+
+		for (let i = 0; i < replacements.length; i++) {
+			let pos = replacements[i];
+			let htmlTag = i % 2 == 0 ? highlightStart : highlightEnd;
+
+			result = result.concat(entry.text.substring(index, pos), htmlTag);
+			index = pos;
+		}
+
+		result = result.concat(entry.text.substring(index));
+
 		return result;
+	}
+
+	private static sortNumber(a, b) {
+		return a - b;
 	}
 }

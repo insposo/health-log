@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EntryService} from "../services/entry.service";
 import {Entry} from "../models/entry";
+import {Utils} from "../core/utils";
 
 @Component({
 	selector: 'hl-entry-list',
@@ -9,9 +10,9 @@ import {Entry} from "../models/entry";
 export class EntryListComponent implements OnInit {
 
 	private loading = true;
-	private entries: Entry[];
+	private entries:Entry[];
 
-	constructor(private entryService: EntryService) {
+	constructor(private entryService:EntryService) {
 	}
 
 	ngOnInit() {
@@ -32,7 +33,7 @@ export class EntryListComponent implements OnInit {
 	refreshPendingEntries() {
 
 		this.entries.forEach((entry, i) => {
-			if(entry.status == 'pending') {
+			if (entry.status == 'pending') {
 				this.refreshEntry(entry, i);
 			}
 		});
@@ -41,10 +42,14 @@ export class EntryListComponent implements OnInit {
 	refreshEntry(entry, index) {
 		this.entryService.getEntry(entry.id)
 			.subscribe(entry => {
-				if(entry.status !== 'pending') {
+				if (entry.status !== 'pending') {
 					this.entries[index] = entry;
 				}
 			})
+	}
+
+	getFormattedText(entry: Entry) {
+		Utils.highlightTextFromData(entry);
 	}
 
 }
