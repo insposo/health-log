@@ -43,7 +43,7 @@ class BaseController {
 				.then((entry) => {
 					id = entry.id;
 					res.send(entry);
-					return service.extract(text);
+					return service.diag(text);
 				})
 				.then((data) => {
 					return repo.finalizeEntry(id, data)
@@ -54,8 +54,13 @@ class BaseController {
 		} else {
 			res.status(400).send(JSON.stringify({works: 'nope'}));
 		}
-
 	}
+
+	diagnose(req, res) {
+		var content = req.body;
+		res.send(service.diag(content))
+	}
+
 }
 
 module.exports = new BaseController();
