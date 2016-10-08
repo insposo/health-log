@@ -23,6 +23,7 @@ class BaseController {
 
 	createEntry(req, res) {
 		var file = req.files.file;
+		var text = req.body.text;
 		if (file) {
 			let id;
 			repo.saveFileEntry('athlete', file.path)
@@ -37,6 +38,21 @@ class BaseController {
 				.catch((err) => {
 					console.error(err.stack);
 				});
+		} else if (text) {
+			repo.saveTextEntry('athlete', text)
+				.then((entry) => {
+					id = entry.id;
+					res.send(entry);
+					return service.extract(text);
+				})
+				.then((data) => {
+					return repo.finalizeEntry(id, data)
+				})
+				.catch((err) => {
+					console.error(err.stack);
+				});
+		} else {
+			res.status(400).send(JSON.stringify({works: 'nope'}));
 		}
 
 	}

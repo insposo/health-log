@@ -18,6 +18,15 @@ class LogEntryRepository extends BaseRepository{
 		});
 	}
 
+	saveTextEntry(author, text) {
+		return this.save({
+			date: new Date(),
+			author: author,
+			text: text,
+			status: LogEntryRepository.Status.pending
+		});
+	}
+
 	finalizeEntry(id, data) {
 		return this.save({
 			id: id,
