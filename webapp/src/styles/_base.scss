@@ -127,6 +127,8 @@ button {
 	font-size: .8em;
 }
 
-.align-right {
+.footer {
+	padding-top: .5em;
+	border-top: 1px solid $colorGrayMedium;
 	text-align: right;
 }

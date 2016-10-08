@@ -28,11 +28,11 @@
 			</ul>
 		</div>
 
-		<div class="align-right">
-			<button md-button color="accent" *ngIf="entry.status == 'done'" (click)="toggleDetails()">More details</button>
+		<div class="footer">
+			<button md-button color="accent" *ngIf="entry.status == 'done'" (click)="toggleDetails()">{{ !showDetails ? 'More details' : 'Less details' }}</button>
 		</div>
 
-		<div class="more-details" *ngIf="!showDetails">
+		<div class="more-details" *ngIf="showDetails">
 			<div class="column">
 				<h4>Original</h4>
 				<p [innerHTML]="getFormattedText(entry)"></p>
