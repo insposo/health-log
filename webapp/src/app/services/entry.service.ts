@@ -8,7 +8,7 @@ import {Entry} from "../models/entry";
 @Injectable()
 export class EntryService extends BaseService {
 
-	private pathEntries: '/entries';
+	private pathEntries = '/entries';
 
 	constructor(http: Http) {
 		super(http);
@@ -45,4 +45,7 @@ export class EntryService extends BaseService {
 		return this.get(this.pathEntries + path);
 	}
 
+	createEntry(data): Observable<Entry> {
+		return this.post(this.pathEntries, data);
+	}
 }

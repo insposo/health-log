@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+	production: true,
+	apiUrl: 'http://health-log.eu-gb.mybluemix.net'
 };
