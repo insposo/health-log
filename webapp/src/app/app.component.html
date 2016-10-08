@@ -1,5 +1,5 @@
 <span class="app-action">
-	<button md-fab>
+	<button md-fab (click)="addEntry()">
 		<md-icon class="md-24">add</md-icon>
 	</button>
 </span>
@@ -11,4 +11,4 @@
 	</div>
 </header>
 
-<hlth-entry-list></hlth-entry-list>
+<router-outlet></router-outlet>

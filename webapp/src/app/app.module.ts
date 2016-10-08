@@ -7,17 +7,23 @@ import {AppComponent} from './app.component';
 import {MaterialModule, MdIconRegistry} from "@angular/material";
 import {EntryService} from "./services/entry.service";
 import {EntryListComponent} from "./entry-list/entry-list.component";
+import {routing} from "./app.routing";
+import {AddEntryComponent} from "./add-entry/add-entry.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		EntryListComponent
+		EntryListComponent,
+		AddEntryComponent
 	],
 	imports: [
 		BrowserModule,
 		FormsModule,
 		HttpModule,
-		MaterialModule
+		MaterialModule,
+		RouterModule,
+		routing
 	],
 	providers: [
 		MdIconRegistry,
