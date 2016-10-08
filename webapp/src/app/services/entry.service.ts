@@ -18,14 +18,48 @@ export class EntryService extends BaseService {
 
 		let entry = {
 			id: 1,
-			status: 'pending',
+			status: 'done',
 			date: '2016-01-01',
 			author: {
 				name: 'Jörgen Klöpp',
 				image_url: 'http://mediadb.kicker.de/2014/fussball/trainer/xl/2641_17_201371015557844.jpg'
 			},
 			data: [{
-				"status": "[negative, positive, post, suspect]",
+				"status": "negative",
+				"range": "[start, end]",
+				"text": "keinen Anhalt für renale Secundaria",
+				"icd10": {
+					"id": "AC79.0",
+					"content": {
+						"meta:model": "gnuhealth.pathology",
+						"msgid": "Secondary malignant neoplasm of other sites",
+						"es_EC": "Tumor maligno secundario de otros sitios",
+						"es_ES": "Tumor maligno secundario de otros sitios",
+						"ja_JP": "その他の部位の続発性悪性新生物",
+						"pt_BR": "neoplasia maligna secundária de outros locais",
+						"zh_CN": "其它部位继发恶性肿瘤"
+					}
+				},
+				"link": "http://lmgtfy.com/?q=ICD10%3AC79.0"
+			},{
+				"status": "negative",
+				"range": "[start, end]",
+				"text": "keinen Anhalt für renale Secundaria",
+				"icd10": {
+					"id": "AC79.0",
+					"content": {
+						"meta:model": "gnuhealth.pathology",
+						"msgid": "Secondary malignant neoplasm of other sites",
+						"es_EC": "Tumor maligno secundario de otros sitios",
+						"es_ES": "Tumor maligno secundario de otros sitios",
+						"ja_JP": "その他の部位の続発性悪性新生物",
+						"pt_BR": "neoplasia maligna secundária de outros locais",
+						"zh_CN": "其它部位继发恶性肿瘤"
+					}
+				},
+				"link": "http://lmgtfy.com/?q=ICD10%3AC79.0"
+			},{
+				"status": "negative",
 				"range": "[start, end]",
 				"text": "keinen Anhalt für renale Secundaria",
 				"icd10": {

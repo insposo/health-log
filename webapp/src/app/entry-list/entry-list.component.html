@@ -14,6 +14,21 @@
 			<small>Processing</small>
 		</div>
 
+		<div *ngIf="entry.data.length">
+			<h3>Findings</h3>
+			<table class="findings-table">
+				<tr class="sr-only">
+					<th>Status</th>
+					<th>Finding</th>
+				</tr>
+				<tr *ngFor="let item of entry.data">
+					<td>{{ item.status }}</td>
+					<td>{{ item.text }}</td>
+					<td>{{ item.icd10.id }}</td>
+				</tr>
+			</table>
+		</div>
+
 		<button md-button *ngIf="entry.status == 'done'">More details</button>
 	</md-card>
 </div>

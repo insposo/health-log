@@ -158,8 +158,16 @@ hl-entry-list {
 			margin-right: .5em;
 		}
 	}
-}
 
+	.findings-table {
+		width: 100%;
+		text-align: left;
+
+		td {
+			padding: .3em 0;
+		}
+	}
+}
 
 .date {
 	text-transform: uppercase;
@@ -178,4 +186,8 @@ button {
 	md-card {
 		border-radius: 0 !important;
 	}
+}
+
+.sr-only {
+	display: none;
 }
