@@ -12,10 +12,9 @@ describe('OcrService', () => {
 	});
 
 	it('diag', () => {
-		var json = require('../../../assets/ocr-out.json')
-		return service.diag(json)
+		var json = require('../../../assets/mla-in.json')
+		return service.diag(json.text)
 			.then((data) => {
-
 				console.log("there it is", data.content);
 			});
 
