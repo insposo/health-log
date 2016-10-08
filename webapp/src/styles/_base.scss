@@ -57,6 +57,16 @@ textarea {
 	.top-header__inner {
 		display: flex;
 
+		@media(max-width: 800px) {
+			display: block;
+
+			h2 {
+				font-size: 26px;
+				margin-top: 0;
+				margin-bottom: 10px;
+			}
+		}
+
 		.image-wrapper {
 			margin-left: auto;
 			display: flex;
@@ -112,8 +122,7 @@ hl-add-entry {
 }
 
 .file-upload-zone {
-	margin: 2em 0;
-	padding: 2em;
+	margin: 30px 0;
 }
 
 
@@ -125,6 +134,7 @@ hl-entry-list {
 
 .entry {
 	margin-bottom: 20px;
+	padding-bottom: 10px !important;
 
 	md-spinner {
 		width: 20px !important;
@@ -134,16 +144,33 @@ hl-entry-list {
 	.header {
 		display: flex;
 		justify-content: space-between;
+
+		.author,
+		.date {
+			color: $colorGrayMedium;
+			padding: .5em;
+			font-size: .8em;
+		}
 	}
 }
 
-.author,
-.date {
-	color: $colorGrayMedium;
-	padding: .5em;
-	font-size: .8em;
-}
 
 .date {
 	text-transform: uppercase;
+}
+
+button {
+	display: block;
+	width: auto;
+}
+
+[md-button] {
+	text-transform: uppercase !important;
+}
+
+@media(max-width: 800px) {
+	md-card {
+		border-radius: 0 !important;
+	}
+>>>>>>> Some styling optimizations, add details button for list
 }
