@@ -31,6 +31,6 @@
 			<p [innerHTML]="getFormattedText(entry)"></p>
 		</div>
 
-		<button md-button *ngIf="entry.status == 'done'">More details</button>
+		<button md-button *ngIf="entry.status == 'done'" (click)="toggleDetails()">More details</button>
 	</md-card>
 </div>

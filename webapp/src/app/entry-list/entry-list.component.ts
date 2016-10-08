@@ -11,6 +11,7 @@ export class EntryListComponent implements OnInit {
 
 	private loading = true;
 	private entries:Entry[];
+	private showDetails:Boolean = false;
 
 	constructor(private entryService:EntryService) {
 	}
@@ -52,4 +53,7 @@ export class EntryListComponent implements OnInit {
 		return Utils.highlightTextFromData(entry);
 	}
 
+	toggleDetails() {
+		this.showDetails = !this.showDetails;
+	}
 }
