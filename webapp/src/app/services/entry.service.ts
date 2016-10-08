@@ -24,9 +24,10 @@ export class EntryService extends BaseService {
 				name: 'Jörgen Klöpp',
 				image_url: 'http://mediadb.kicker.de/2014/fussball/trainer/xl/2641_17_201371015557844.jpg'
 			},
+			text: "Wir haben leider keinen Anhalt für renale Secundaria gefunden. Das ist ziemlich schade.",
 			data: [{
 				"status": "negative",
-				"range": "[start, end]",
+				"range": [12, 34],
 				"text": "keinen Anhalt für renale Secundaria",
 				"icd10": {
 					"id": "AC79.0",
@@ -43,7 +44,7 @@ export class EntryService extends BaseService {
 				"link": "http://lmgtfy.com/?q=ICD10%3AC79.0"
 			},{
 				"status": "negative",
-				"range": "[start, end]",
+				"range": [2, 6],
 				"text": "keinen Anhalt für renale Secundaria",
 				"icd10": {
 					"id": "AC79.0",
@@ -60,7 +61,7 @@ export class EntryService extends BaseService {
 				"link": "http://lmgtfy.com/?q=ICD10%3AC79.0"
 			},{
 				"status": "negative",
-				"range": "[start, end]",
+				"range": [40, 45],
 				"text": "keinen Anhalt für renale Secundaria",
 				"icd10": {
 					"id": "AC79.0",
