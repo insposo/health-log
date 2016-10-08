@@ -7,6 +7,7 @@ var cors = require('cors');
 var routes = require('./routes');
 var multiparty = require('connect-multiparty');
 var multipartyMiddleware = multiparty({ uploadDir: './uploads' });
+var Config = require('../config');
 
 app.use(multipartyMiddleware);
 app.use(bodyParser.urlencoded({extended: false}));
@@ -17,7 +18,8 @@ app.use(compression());
 
 // CORS Configuration
 var whiteList = [
-	'http://localhost:4200'
+	'http://localhost:4200',
+	'https://trayn-berg-39-1090.firebaseapp.com'
 ];
 
 var corsOptions = {

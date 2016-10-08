@@ -4,3 +4,4 @@ trayn-*.json
 uploads/
 webapp/dist/
 npm-debug.log
+.env
