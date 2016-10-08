@@ -7,7 +7,12 @@
 <header class="top-header">
 	<div class="page-container">
 		<div class="top-header__inner">
-			<h2><a class="toplink" [routerLink]="['/']">Trayn Health Log</a></h2>
+			<h2>
+				<a class="toplink" [routerLink]="['/']">
+					<md-icon svgSrc="/assets/images/trayn.svg" class="logo"></md-icon>
+					<span>Health Log</span>
+				</a>
+			</h2>
 			<div class="image-wrapper">
 				<hl-user-image [user]="user"></hl-user-image>
 				{{ user.name }}

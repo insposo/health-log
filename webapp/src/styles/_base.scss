@@ -44,32 +44,6 @@ textarea {
 	margin: 0 auto;
 }
 
-.top-header {
-	color: white;
-	background-color: $colorPrimary;
-	padding: 20px 20px;
-	padding-bottom: 120px;
-
-	h2 {
-		font-size: 30px;
-	}
-
-	.top-header__inner {
-		display: flex;
-
-		@media(max-width: 800px) {
-			display: block;
-
-			h2 {
-				font-size: 26px;
-				margin-top: 0;
-				margin-bottom: 10px;
-			}
-		}
-	}
-}
-
-
 .image-wrapper {
 	margin-left: auto;
 	display: flex;
