@@ -43,7 +43,7 @@ class Server {
 	start() {
 		var self = this;
 		return new Promise((resolve) => {
-			this.server = app.listen((process.env.PORT || '3000'), function () {
+			this.server = app.listen((process.env.PORT || 3000), function () {
 				resolve.call(self, self);
 			});
 		});
