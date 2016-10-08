@@ -10,12 +10,13 @@ import {EntryListComponent} from "./entry-list/entry-list.component";
 import {routing} from "./app.routing";
 import {AddEntryComponent} from "./add-entry/add-entry.component";
 import {RouterModule} from "@angular/router";
+import {FileUploadModule} from "ng2-file-upload/ng2-file-upload";
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		EntryListComponent,
-		AddEntryComponent
+		AddEntryComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -23,6 +24,7 @@ import {RouterModule} from "@angular/router";
 		HttpModule,
 		MaterialModule,
 		RouterModule,
+		FileUploadModule,
 		routing
 	],
 	providers: [

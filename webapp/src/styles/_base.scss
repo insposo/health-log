@@ -52,12 +52,29 @@ md-card {
 	background-color: white;
 }
 
+
 .app-action {
 	display: inline-block;
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
 }
+
+// Upload forms
+hlth-add-entry {
+	position: relative;
+	top: -100px;
+}
+
+.file-drop-zone {
+	border: 3px dashed $colorGrayUltraLight;
+	padding: 2em;
+
+	&.file-dropping {
+		border-color: $colorPrimary;
+	}
+}
+
 
 // Entry List
 hlth-entry-list {

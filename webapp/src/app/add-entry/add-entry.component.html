@@ -1,0 +1,33 @@
+<div class="page-container">
+
+	<md-card>
+		<md-tab-group>
+			<md-tab>
+				<template md-tab-label>
+					Upload image
+				</template>
+				<template md-tab-content>
+					<div ng2FileDrop
+						 [ngClass]="{'file-dropping': hasBaseDropZoneOver}"
+						 (fileOver)="fileOverBase($event)"
+						 [uploader]="uploader"
+						 class="file-drop-zone">
+						<input type="file" ng2FileSelect [uploader]="uploader" color="secondary" />
+						<p>Or drag & drop images here</p>
+					</div>
+					<button (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Upload image file</button>
+				</template>
+			</md-tab>
+			<md-tab>
+				<template md-tab-label>
+					Text input
+				</template>
+				<template md-tab-content>
+					<p>Please fill in your medical report here, if you have it available in plain text.</p>
+					<textarea></textarea>
+					<button md-raised-button color="secondary">Upload text</button>
+				</template>
+			</md-tab>
+		</md-tab-group>
+	</md-card>
+</div>
