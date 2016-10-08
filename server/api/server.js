@@ -5,7 +5,8 @@ var bodyParser = require('body-parser');
 var compression = require('compression');
 var cors = require('cors');
 var routes = require('./routes');
-var multiparty = require('multiparty');
+var multiparty = require('connect-multiparty');
+var multipartyMiddleware = multiparty({ uploadDir: './uploads' });
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json({
