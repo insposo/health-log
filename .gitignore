@@ -1,7 +1,9 @@
-.idea/
+.*
 node_modules/
+npm-debug.log
 trayn-*.json
+
 uploads/
 webapp/dist/
-npm-debug.log
-.env
+
+*.iml
