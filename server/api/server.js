@@ -4,6 +4,7 @@ let Promise = require('bluebird');
 var bodyParser = require('body-parser');
 var compression = require('compression');
 var cors = require('cors');
+var routes = require('./routes');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json({
@@ -25,6 +26,8 @@ var corsOptions = {
 };
 app.use(cors(corsOptions));
 app.disable('x-powered-by');
+
+routes.init(app);
 
 class Server {
 
