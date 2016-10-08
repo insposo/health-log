@@ -10,12 +10,14 @@ import {EntryListComponent} from "./entry-list/entry-list.component";
 import {routing} from "./app.routing";
 import {AddEntryComponent} from "./add-entry/add-entry.component";
 import {RouterModule} from "@angular/router";
+import {UserImageComponent} from "./core/user-image.component";
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		EntryListComponent,
-		AddEntryComponent
+		AddEntryComponent,
+		UserImageComponent
 	],
 	imports: [
 		BrowserModule,
