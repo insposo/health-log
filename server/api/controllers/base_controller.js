@@ -30,7 +30,16 @@ class BaseController {
 				.then((entry) => {
 					id = entry.id;
 					res.send(entry);
-					return service.detect(file.path);
+					return service.detectText(file.path);
+				})
+				.then((text) => {
+					return repo.save({
+						id: id,
+						text: text
+					})
+				})
+				.then((entry) => {
+					return service.diag(entry.text)
 				})
 				.then((data) => {
 					return repo.finalizeEntry(id, data)
@@ -39,6 +48,7 @@ class BaseController {
 					console.error(err.stack);
 				});
 		} else if (text) {
+			let id;
 			repo.saveTextEntry('athlete', text)
 				.then((entry) => {
 					id = entry.id;

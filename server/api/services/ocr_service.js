@@ -7,7 +7,7 @@ require("../../config");
 
 class OcrService {
 
-	detect(img) {
+	detectText(img) {
 		return new Promise((resolve, reject) => {
 			vision.detectText(img, (err, text, apiResponse) => {
 				if (err) {
