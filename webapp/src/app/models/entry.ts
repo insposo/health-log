@@ -1,4 +1,5 @@
 import {User} from "./user";
+import {EntryFinding} from "./entry-finding";
 
 export class Entry {
 
@@ -6,6 +7,6 @@ export class Entry {
 	status: string;
 	date: string;
 	author: User;
-	data: any;
+	data: EntryFinding;
 
 }
