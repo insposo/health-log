@@ -13,13 +13,13 @@ class OcrService {
 				if (err) {
 					reject(err);
 				} else {
-					resolve(JSON.stringify(text));
+					resolve(text[0]);
 				}
 			});
 		});
 	}
 
-    diag(ocr_response) {
+    diag(text) {
         return new Promise((resolve, reject) => {
             var options = { method: 'POST',
                 url: 'https://api.eu.apiconnect.ibmcloud.com/g-cloud-dev/cognitive-apis/mla/1.0.2/diagnosis',
@@ -29,7 +29,7 @@ class OcrService {
                     'x-ibm-client-id': process.env.MLA_CLIENT_ID,
                     'x-ibm-client-secret': process.env.MLA_CLIENT_SECRET,
                 },
-                body: { text: ocr_response.text },
+                body: { text: text },
                 json: true
             };
 

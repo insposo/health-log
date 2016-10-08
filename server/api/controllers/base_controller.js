@@ -43,7 +43,7 @@ class BaseController {
 				.then((entry) => {
 					id = entry.id;
 					res.send(entry);
-					return service.extract(text);
+					return service.diag(text);
 				})
 				.then((data) => {
 					return repo.finalizeEntry(id, data)
