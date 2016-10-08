@@ -2,7 +2,10 @@
 	<md-spinner *ngIf="loading"></md-spinner>
 
 	<md-card *ngFor="let entry of entries" class="entry">
-		{{ entry.date | date }}
+		<div class="header">
+			<span class="date">{{ entry.date | date }}</span>
+			<span class="author">Jürgen Klopp</span>
+		</div>
 		<div *ngIf="entry.status == 'PENDING'">
 			<md-spinner></md-spinner>
 			<small>Processing</small>

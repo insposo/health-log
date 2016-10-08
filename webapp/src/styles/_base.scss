@@ -129,4 +129,20 @@ hl-entry-list {
 		width: 20px !important;
 		height: 20px !important;
 	}
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.author,
+.date {
+	color: $colorGrayMedium;
+	padding: .5em;
+	font-size: .8em;
+}
+
+.date {
+	text-transform: uppercase;
 }
