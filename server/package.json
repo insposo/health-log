@@ -1,7 +1,8 @@
 {
   "name": "health-log-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "A health log",
+  "repository": "git@github.com:insposo/health-log.git",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -10,13 +11,13 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@google-cloud/vision": "^0.3.0",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
-    "express": "^4.14.0"
-  },
-  "devDependencies": {
-    "lodash": "latest"
+    "express": "^4.14.0",
+    "lodash": "^4.16.4",
+    "multiparty": "^4.1.2"
   }
 }

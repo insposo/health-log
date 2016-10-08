@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var compression = require('compression');
 var cors = require('cors');
 var routes = require('./routes');
+var multiparty = require('multiparty');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json({
