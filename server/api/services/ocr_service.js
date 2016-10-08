@@ -53,6 +53,13 @@ class OcrService {
                                 if (keyword) {
                                     var kv = keyword.split("#");
                                     m.text = kv[0];
+
+                                    if (m.text) {
+                                        var pos = text.indexOf(m.text);
+                                        if (pos > -1) {
+                                            m.range = [pos, pos + m.text.length];
+                                        }
+                                    }
                                     m.link = googleSearchLink(m.text);
                                     var posIcd = kv[1].indexOf("ICD10:");
                                     if (posIcd > -1) {
