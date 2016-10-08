@@ -145,6 +145,7 @@ hl-entry-list {
 	.header {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 
 		.author,
 		.date {
@@ -190,4 +191,8 @@ button {
 
 .sr-only {
 	display: none;
+}
+
+.btn-small {
+	font-size: .8em;
 }
