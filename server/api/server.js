@@ -38,7 +38,7 @@ class Server {
 	start() {
 		var self = this;
 		return new Promise((resolve) => {
-			this.server = app.listen(3000, function () {
+			this.server = app.listen((process.env.PORT || '3000'), function () {
 				resolve.call(self, self);
 			});
 		});
@@ -59,7 +59,7 @@ class Server {
 	get address() {
 		var address = this.server.address();
 		var ip = address.address == '::' ? '0.0.0.0' : address.address;
-		return 'http://' + ip + ':' + address.port;
+		return 'http://' + ip + ':' + (process.env.PORT || address.port);
 	}
 
 }

@@ -1,0 +1,8 @@
+applications:
+- host: health-log
+  name: health-log
+  command: npm start
+  path: .
+  domain: eu-gb.mybluemix.net
+  memory: 128M
+  instances: 2
