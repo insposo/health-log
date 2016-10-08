@@ -9,11 +9,11 @@
 				<span class="author">{{ entry.author.name }}</span>
 			</div>
 		</div>
-		<div *ngIf="entry.status == 'PENDING'">
+		<div *ngIf="entry.status == 'pending'">
 			<md-spinner></md-spinner>
 			<small>Processing</small>
 		</div>
 
-		<button md-button>More details</button>
+		<button md-button *ngIf="entry.status == 'done'">More details</button>
 	</md-card>
 </div>
