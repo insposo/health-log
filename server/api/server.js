@@ -18,7 +18,8 @@ app.use(compression());
 
 // CORS Configuration
 var whiteList = [
-	'http://localhost:4200'
+	'http://localhost:4200',
+	'https://trayn-berg-39-1090.firebaseapp.com'
 ];
 
 var corsOptions = {
