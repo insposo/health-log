@@ -13,9 +13,10 @@ class BaseRepository {
 			});
 	}
 
-	list(attributes) {
+	list(attributes, order) {
+
 		return this.modelClass.collection()
-			.query({ where: attributes })
+			.query(createQuery(attributes, order))
 			.fetch({ withRelated: this.modelClass.load })
 			.then(function (models) {
 				if (!models) {
@@ -45,6 +46,14 @@ class BaseRepository {
 			.destroy();
 	}
 
+}
+
+function createQuery(attributes, order) {
+	var filter = attributes? {where: attributes} : {};
+	if (order) {
+		filter.orderBy = [order.column, order.direction];
+	}
+	return filter;
 }
 
 module.exports = BaseRepository;

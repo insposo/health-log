@@ -11,7 +11,7 @@ class LogEntryRepository extends BaseRepository{
 	}
 
 	list(attributes = {}) {
-		return super.list(attributes)
+		return super.list(attributes, {column: 'date', direction: 'DESC'})
 			.then((items) => {
 				if (!items) {
 					return [];
