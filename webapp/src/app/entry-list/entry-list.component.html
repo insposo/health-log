@@ -33,12 +33,15 @@
 		</div>
 
 		<div class="more-details" *ngIf="showDetails">
-			<div class="column">
+			<div class="column" *ngIf="entry.text">
 				<h4>Original</h4>
 				<p [innerHTML]="getFormattedText(entry)"></p>
 			</div>
 			<div class="column">
-				<img src="{{ entry.image_url }}" alt="" *ngIf="entry.image_url">
+				<div *ngIf="entry.image_url">
+					<h4>Image</h4>
+					<img src="{{ entry.image_url }}" alt="" *ngIf="entry.image_url">
+				</div>
 			</div>
 		</div>
 	</md-card>
