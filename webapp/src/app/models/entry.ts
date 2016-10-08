@@ -7,6 +7,7 @@ export class Entry {
 	status: string;
 	date: string;
 	author: User;
-	data: EntryFinding;
+	text: string;
+	data: EntryFinding[];
 
 }
