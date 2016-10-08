@@ -6,5 +6,6 @@ export class Entry {
 	status: string;
 	date: string;
 	author: User;
+	data: any;
 
 }

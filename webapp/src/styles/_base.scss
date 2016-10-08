@@ -66,16 +66,17 @@ textarea {
 				margin-bottom: 10px;
 			}
 		}
+	}
+}
 
-		.image-wrapper {
-			margin-left: auto;
-			display: flex;
-			align-items: center;
 
-			.user-image {
-				margin-right: 10px;
-			}
-		}
+.image-wrapper {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+
+	.user-image {
+		margin-right: 10px;
 	}
 }
 
@@ -148,8 +149,13 @@ hl-entry-list {
 		.author,
 		.date {
 			color: $colorGrayMedium;
-			padding: .5em;
 			font-size: .8em;
+		}
+
+		.user-image {
+			width: 25px;
+			height: 25px;
+			margin-right: .5em;
 		}
 	}
 }
@@ -172,5 +178,4 @@ button {
 	md-card {
 		border-radius: 0 !important;
 	}
->>>>>>> Some styling optimizations, add details button for list
 }

@@ -4,7 +4,10 @@
 	<md-card *ngFor="let entry of entries" class="entry">
 		<div class="header">
 			<span class="date">{{ entry.date | date }}</span>
-			<span class="author">Jürgen Klopp</span>
+			<div class="image-wrapper">
+				<hl-user-image [user]="entry.author"></hl-user-image>
+				<span class="author">{{ entry.author.name }}</span>
+			</div>
 		</div>
 		<div *ngIf="entry.status == 'PENDING'">
 			<md-spinner></md-spinner>
