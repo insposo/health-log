@@ -24,6 +24,27 @@ export class EntryListComponent implements OnInit {
 				error => {
 					// TODO error handling
 				})
+
+
+		setInterval(this.refreshPendingEntries(), 1000);
+	}
+
+	refreshPendingEntries() {
+
+		this.entries.forEach((entry, i) => {
+			if(entry.status == 'pending') {
+				this.refreshEntry(entry, i);
+			}
+		});
+	}
+
+	refreshEntry(entry, index) {
+		this.entryService.getEntry(entry.id)
+			.subscribe(entry => {
+				if(entry.status !== 'pending') {
+					this.entries[index] = entry;
+				}
+			})
 	}
 
 }
