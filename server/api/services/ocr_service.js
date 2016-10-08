@@ -7,7 +7,7 @@ class OcrService {
 
 	detect(img) {
 		return new Promise((resolve, reject) => {
-			vision.detectText(img, function(err, text, apiResponse) {
+			vision.detectText(img, { verbose: true }, (err, text, apiResponse) => {
 				if (err) {
 					reject(err);
 				} else {
