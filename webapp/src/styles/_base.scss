@@ -100,50 +100,6 @@ hl-add-entry {
 	margin: 30px 0;
 }
 
-
-// Entry List
-hl-entry-list {
-	position: relative;
-	top: -100px;
-}
-
-.entry {
-	margin-bottom: 20px;
-	padding-bottom: 10px !important;
-
-	md-spinner {
-		width: 20px !important;
-		height: 20px !important;
-	}
-
-	.header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-		.author,
-		.date {
-			color: $colorGrayMedium;
-			font-size: .8em;
-		}
-
-		.user-image {
-			width: 25px;
-			height: 25px;
-			margin-right: .5em;
-		}
-	}
-
-	.findings-table {
-		width: 100%;
-		text-align: left;
-
-		td {
-			padding: .3em 0;
-		}
-	}
-}
-
 .date {
 	text-transform: uppercase;
 }
