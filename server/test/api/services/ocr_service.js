@@ -15,7 +15,7 @@ describe('OcrService', () => {
 		var json = require('../../../assets/mla-in.json')
 		return service.diag(json.text)
 			.then((data) => {
-				console.log("there it is", data.content);
+				should(data[0].icd10.id).eql('S52.4')
 			});
 
 	});
