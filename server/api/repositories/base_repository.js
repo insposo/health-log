@@ -1,31 +1,50 @@
-var entries = [];
-var _ = require('lodash');
-var Promise = require("bluebird");
-
 class BaseRepository {
 
-	list() {
-		return new Promise((resolve) => {
-			resolve(entries);
-		});
+	constructor(model) {
+		this.modelClass = model;
 	}
 
-	find(id) {
-		return new Promise((resolve) => {
-			let entry = _.find(entries, (entry) => {
-				return entry.id == id;
+	save(attributes) {
+		var self = this;
+		return this.modelClass.forge({id: attributes.id})
+			.save(attributes)
+			.then(function (model) {
+				return self.findById(model.attributes.id);
 			});
-			resolve(entry);
-		});
 	}
 
-	create(entry) {
-		return new Promise((resolve) => {
-			entries.push(entry);
-			resolve(entry);
-		});
+	list(attributes) {
+		return this.modelClass.collection()
+			.query({ where: attributes })
+			.fetch({ withRelated: this.modelClass.load })
+			.then(function (models) {
+				if (!models) {
+					return [];
+				}
+				return models.toJSON();
+			});
+	}
+
+	find(attributes) {
+		return this.modelClass.forge(attributes)
+			.fetch({ withRelated: this.modelClass.load })
+			.then(function (model) {
+				if (model) {
+					return model.toJSON();
+				}
+				return null;
+			});
+	}
+
+	findById(id) {
+		return this.find({id: id});
+	}
+
+	remove(attributes) {
+		return this.modelClass.forge(attributes)
+			.destroy();
 	}
 
 }
 
-module.exports = new BaseRepository();
+module.exports = BaseRepository;
