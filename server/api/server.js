@@ -7,6 +7,7 @@ var cors = require('cors');
 var routes = require('./routes');
 var multiparty = require('connect-multiparty');
 var multipartyMiddleware = multiparty({ uploadDir: './uploads' });
+var Config = require('../config');
 
 app.use(multipartyMiddleware);
 app.use(bodyParser.urlencoded({extended: false}));
