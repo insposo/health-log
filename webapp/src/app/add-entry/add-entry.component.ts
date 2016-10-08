@@ -4,7 +4,7 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 
 @Component({
-	selector: 'hlth-add-entry',
+	selector: 'hl-add-entry',
 	templateUrl: 'add-entry.component.html'
 })
 export class AddEntryComponent implements OnInit {
