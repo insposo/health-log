@@ -1,3 +1,4 @@
 .idea/
 node_modules/
-trayn-0a6db519a313.json
+trayn-*.json
+uploads/
