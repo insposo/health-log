@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {MaterialModule} from "@angular/material";
+import {MaterialModule, MdIconRegistry} from "@angular/material";
 import {EntryService} from "./services/entry.service";
 import {EntryListComponent} from "./entry-list/entry-list.component";
 
@@ -20,6 +20,7 @@ import {EntryListComponent} from "./entry-list/entry-list.component";
 		MaterialModule
 	],
 	providers: [
+		MdIconRegistry,
 		EntryService
 	],
 	bootstrap: [AppComponent]

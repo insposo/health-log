@@ -1,0 +1,11 @@
+<div class="page-container">
+	<md-spinner *ngIf="loading"></md-spinner>
+
+	<md-card *ngFor="let entry of entries" class="entry">
+		{{ entry.date | date }}
+		<div *ngIf="entry.status == 'PENDING'">
+			<md-spinner></md-spinner>
+			<small>Processing</small>
+		</div>
+	</md-card>
+</div>

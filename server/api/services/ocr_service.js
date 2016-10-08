@@ -1,13 +1,13 @@
 var vision = require('@google-cloud/vision')({
 	projectId: 'trayn-berg-39-1090',
-	keyFilename: '../trayn-0a6db519a313.json'
+	keyFilename: __dirname + '/../../trayn-0a6db519a313.json'
 });
 
 class OcrService {
 
 	detect(img) {
 		return new Promise((resolve, reject) => {
-			vision.detectText(img, { verbose: true }, (err, text, apiResponse) => {
+			vision.detectText(img, (err, text, apiResponse) => {
 				if (err) {
 					reject(err);
 				} else {

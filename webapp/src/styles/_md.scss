@@ -1,0 +1,9 @@
+button {
+	&[md-fab] {
+		background-color: $colorPrimary;
+	}
+
+	md-icon {
+		color: white !important;
+	}
+}

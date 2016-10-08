@@ -21,6 +21,21 @@ export class EntryService extends BaseService {
 				id: 1,
 				status: 'PENDING',
 				date: '2016-01-01'
+			},
+			{
+				id: 1,
+				status: 'DONE',
+				date: '2016-01-01'
+			},
+			{
+				id: 1,
+				status: 'DONE',
+				date: '2016-01-01'
+			},
+			{
+				id: 1,
+				status: 'DONE',
+				date: '2016-01-01'
 			}
 		] as Entry[])
 	}

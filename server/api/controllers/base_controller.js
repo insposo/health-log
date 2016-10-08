@@ -1,4 +1,5 @@
 var repo = require('../repositories/base_repository');
+var service = require('../services/ocr_service');
 
 class BaseController {
 
@@ -21,6 +22,17 @@ class BaseController {
 	}
 
 	createEntry(req, res) {
+		var file = req.files.file;
+		if (file) {
+
+			service.detect(file.path)
+				.then((data) => {
+					res.send(data);
+				})
+				.catch((err) => {
+					res.status(500).send(err);
+				});
+		}
 
 	}
 
