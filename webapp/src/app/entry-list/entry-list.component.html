@@ -24,13 +24,24 @@
 						<p>{{ item.text }}</p>
 						<!--<a class="standard-link" href="{{ item.link }}" *ngIf="item.icd10">{{ item.icd10.id }}</a>-->
 					</div>
-
 				</li>
 			</ul>
 
-			<p [innerHTML]="getFormattedText(entry)"></p>
+
 		</div>
 
 		<button md-button *ngIf="entry.status == 'done'" (click)="toggleDetails()">More details</button>
+
+		<div class="more-details" *ngIf="!showDetails">
+
+			<div class="column">
+				<h4>Original</h4>
+				<p [innerHTML]="getFormattedText(entry)"></p>
+			</div>
+			<div class="column">
+				<img src="{{ entry.image_url }}" alt="" *ngIf="entry.image_url">
+			</div>
+
+		</div>
 	</md-card>
 </div>
