@@ -1,0 +1,9 @@
+#!/bin/bash
+TOKEN=$1
+
+if [ -z $1 ]; then
+	echo "Usage: `basename $0` <firebase deploy token>"
+	exit 1
+fi
+
+npm run build && export FIREBASE_TOKEN=$1 && firebase deploy --project "trayn-berg-39-1090" --token="$FIREBASE_TOKEN";
