@@ -26,14 +26,13 @@
 					</div>
 				</li>
 			</ul>
-
-
 		</div>
 
-		<button md-button *ngIf="entry.status == 'done'" (click)="toggleDetails()">More details</button>
+		<div class="align-right">
+			<button md-button color="accent" *ngIf="entry.status == 'done'" (click)="toggleDetails()">More details</button>
+		</div>
 
 		<div class="more-details" *ngIf="!showDetails">
-
 			<div class="column">
 				<h4>Original</h4>
 				<p [innerHTML]="getFormattedText(entry)"></p>
@@ -41,7 +40,6 @@
 			<div class="column">
 				<img src="{{ entry.image_url }}" alt="" *ngIf="entry.image_url">
 			</div>
-
 		</div>
 	</md-card>
 </div>
