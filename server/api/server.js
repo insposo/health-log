@@ -62,7 +62,7 @@ class Server {
 	get address() {
 		var address = this.server.address();
 		var ip = address.address == '::' ? '0.0.0.0' : address.address;
-		return 'http://' + ip + ':' + (process.env.PORT || address.port);
+		return 'http://' + ip + ':' + (address.port);
 	}
 
 }
