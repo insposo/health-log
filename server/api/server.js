@@ -9,6 +9,7 @@ var multiparty = require('connect-multiparty');
 var multipartyMiddleware = multiparty({ uploadDir: './uploads' });
 var Config = require('../config');
 
+app.use('/uploads', express.static('uploads'));
 app.use(multipartyMiddleware);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json({
@@ -43,7 +44,7 @@ class Server {
 	start() {
 		var self = this;
 		return new Promise((resolve) => {
-			this.server = app.listen((process.env.PORT || '3000'), function () {
+			this.server = app.listen((process.env.PORT || 3000), function () {
 				resolve.call(self, self);
 			});
 		});

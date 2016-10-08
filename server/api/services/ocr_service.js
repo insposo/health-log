@@ -11,10 +11,14 @@ class OcrService {
 				if (err) {
 					reject(err);
 				} else {
-					resolve({ text: text, response: apiResponse });
+					resolve(JSON.stringify(text));
 				}
 			});
 		});
+	}
+
+	extract() {
+
 	}
 
 }

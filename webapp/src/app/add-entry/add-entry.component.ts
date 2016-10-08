@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 
 
 @Component({
-	selector: 'hlth-add-entry',
+	selector: 'hl-add-entry',
 	templateUrl: 'add-entry.component.html'
 })
 export class AddEntryComponent implements OnInit {

@@ -3,7 +3,7 @@ import {EntryService} from "../services/entry.service";
 import {Entry} from "../models/entry";
 
 @Component({
-	selector: 'hlth-entry-list',
+	selector: 'hl-entry-list',
 	templateUrl: 'entry-list.component.html'
 })
 export class EntryListComponent implements OnInit {

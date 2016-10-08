@@ -1,4 +1,4 @@
-var repo = require('../repositories/base_repository');
+var repo = require('../repositories/log_entry_repository');
 var service = require('../services/ocr_service');
 
 class BaseController {
@@ -11,7 +11,7 @@ class BaseController {
 	}
 
 	getEntry(req, res) {
-		repo.find(req.params.id)
+		repo.findById(req.params.id)
 			.then((entry) => {
 				if (entry) {
 					res.send(entry);
@@ -23,20 +23,39 @@ class BaseController {
 
 	createEntry(req, res) {
 		var file = req.files.file;
+		var text = req.body.text;
 		if (file) {
-
-			service.detect(file.path)
+			let id;
+			repo.saveFileEntry('athlete', file.path)
+				.then((entry) => {
+					id = entry.id;
+					res.send(entry);
+					return service.detect(file.path);
+				})
 				.then((data) => {
-					res.send(data);
+					return repo.finalizeEntry(id, data)
 				})
 				.catch((err) => {
-					res.status(500).send(err);
+					console.error(err.stack);
 				});
+		} else if (text) {
+			repo.saveTextEntry('athlete', text)
+				.then((entry) => {
+					id = entry.id;
+					res.send(entry);
+					return service.extract(text);
+				})
+				.then((data) => {
+					return repo.finalizeEntry(id, data)
+				})
+				.catch((err) => {
+					console.error(err.stack);
+				});
+		} else {
+			res.status(400).send(JSON.stringify({works: 'nope'}));
 		}
 
 	}
-
-
 }
 
 module.exports = new BaseController();
