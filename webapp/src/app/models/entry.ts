@@ -1,6 +1,6 @@
-export class LogEntry {
+export class Entry {
 
-	id: string;
+	id: number;
 	status: string;
 	date: string;
 

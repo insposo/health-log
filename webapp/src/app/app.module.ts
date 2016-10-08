@@ -5,10 +5,13 @@ import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {MaterialModule} from "@angular/material";
+import {EntryService} from "./services/entry.service";
+import {EntryListComponent} from "./entry-list/entry-list.component";
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
+		EntryListComponent
 	],
 	imports: [
 		BrowserModule,
@@ -16,7 +19,9 @@ import {MaterialModule} from "@angular/material";
 		HttpModule,
 		MaterialModule
 	],
-	providers: [],
+	providers: [
+		EntryService
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
