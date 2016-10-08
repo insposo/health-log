@@ -54,8 +54,13 @@ class BaseController {
 		} else {
 			res.status(400).send(JSON.stringify({works: 'nope'}));
 		}
-
 	}
+
+	diagnose(req, res) {
+		var content = req.body;
+		res.send(service.diag(content))
+	}
+
 }
 
 module.exports = new BaseController();

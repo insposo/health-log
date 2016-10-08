@@ -11,4 +11,13 @@ describe('OcrService', () => {
 
 	});
 
+	it('diag', () => {
+		var json = require('../../../assets/ocr-out.json')
+		return service.diag(json)
+			.then((data) => {
+
+				console.log("there it is", data.content);
+			});
+
+	});
 });
