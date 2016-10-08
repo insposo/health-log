@@ -2,3 +2,4 @@
 node_modules/
 trayn-*.json
 uploads/
+webapp/dist/

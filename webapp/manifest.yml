@@ -1,0 +1,8 @@
+applications:
+- host: health-log-web
+  name: health-log-web
+  path: .
+  domain: eu-gb.mybluemix.net
+  memory: 128M
+  instances: 2
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack
