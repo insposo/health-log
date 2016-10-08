@@ -16,17 +16,17 @@
 
 		<div *ngIf="entry.data.length">
 			<h3>Findings</h3>
-			<table class="findings-table">
-				<tr class="sr-only">
-					<th>Status</th>
-					<th>Finding</th>
-				</tr>
-				<tr *ngFor="let item of entry.data">
-					<td>{{ item.status }}</td>
-					<td>{{ item.text }}</td>
-					<td>{{ item.icd10.id }}</td>
-				</tr>
-			</table>
+
+			<ul class="finding-list">
+				<li class="finding" *ngFor="let item of entry.data">
+					<md-icon svgSrc="/assets/images/{{ item.status }}.svg"></md-icon>
+					<div>
+						<p>{{ item.text }}</p>
+						<!--<a class="standard-link" href="{{ item.link }}" *ngIf="item.icd10">{{ item.icd10.id }}</a>-->
+					</div>
+
+				</li>
+			</ul>
 		</div>
 
 		<button md-button *ngIf="entry.status == 'done'">More details</button>
