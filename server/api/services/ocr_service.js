@@ -42,11 +42,6 @@ class OcrService {
             });
         })
     }
-
-    extract() {
-
-    }
-
 }
 
 module.exports = new OcrService();
