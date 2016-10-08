@@ -24,6 +24,18 @@ class LogEntryRepository extends BaseRepository{
 			});
 	}
 
+	findById(id) {
+		return super.findById(id)
+			.then((item) => {
+				if (!item) {
+					return null;
+				}
+				return _.defaults({
+					data: JSON.parse(item.data)
+				}, item)
+			});
+	}
+
 	saveFileEntry(author, path) {
 		return this.save({
 			date: new Date(),
