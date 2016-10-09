@@ -9,12 +9,12 @@ import {Utils} from "../core/utils";
 export class EntryComponent implements OnInit {
 
 	@Input() entry: Entry;
-	private showDetails:Boolean = false;
-	private hasLanguages:Boolean = false;
-	private languages:Array = [];
+	private showDetails = false;
+	private hasLanguages = false;
+	private languages: string[] = [];
 
 	ngOnInit() {
-		this.hasLanguages = checkLanguages();
+		this.hasLanguages = this.checkLanguages();
 	}
 
 	getFormattedText(entry: Entry) {
@@ -26,6 +26,8 @@ export class EntryComponent implements OnInit {
 	}
 
 	checkLanguages() {
+		return false;
+		/*
 		if (this.entry.data.icd10) {
 
 			let content = this.entry.data.icd10.content;
@@ -33,5 +35,6 @@ export class EntryComponent implements OnInit {
 
 			}
 		}
+		*/
 	}
 }
