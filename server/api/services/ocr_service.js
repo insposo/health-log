@@ -1,6 +1,6 @@
 var vision = require('@google-cloud/vision')({
 	projectId: 'trayn-berg-39-1090',
-	keyFilename: __dirname + '/../../trayn-0a6db519a313.json'
+	keyFilename: __dirname + '/../../trayn-d8ba5d102c23.json'
 });
 var request = require("request");
 require("../../config");
