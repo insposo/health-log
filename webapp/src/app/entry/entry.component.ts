@@ -32,6 +32,8 @@ export class EntryComponent implements OnInit {
 
 	checkLanguages() {
 		if (this.entry.data) {
+			this.languages.push("en");
+
 			for (let finding of this.entry.data) {
 				if (finding.icd10) {
 					let content = finding.icd10.content;
@@ -44,6 +46,6 @@ export class EntryComponent implements OnInit {
 			}
 		}
 
-		return false;
+		return (this.languages.length > 1);
 	}
 }
