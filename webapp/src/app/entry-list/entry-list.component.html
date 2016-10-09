@@ -1,20 +1,24 @@
 <div class="page-container">
-	<md-spinner *ngIf="loading"></md-spinner>
+	<!--<md-spinner *ngIf="loading"></md-spinner>-->
 
 	<md-card *ngFor="let entry of entries" class="entry">
 		<div class="header">
-			<span class="date">{{ entry.date | date }}</span>
+			<div>
+				<span class="date">{{ entry.date | date }}</span>
+			</div>
 			<div class="image-wrapper">
 				<hl-user-image [user]="entry.author"></hl-user-image>
 				<span class="author">{{ entry.author.name }}</span>
 			</div>
 		</div>
-		<div *ngIf="entry.status == 'pending'">
+
+		<div *ngIf="entry.status == 'pending'" class="pending-wrapper">
 			<md-spinner></md-spinner>
-			<small>Processing</small>
+			<small>Data is processing</small>
 		</div>
 
-		<div *ngIf="entry.data.length">
+
+		<div *ngIf="entry.data">
 			<h3>Findings</h3>
 
 			<ul class="finding-list">
@@ -39,7 +43,7 @@
 			</div>
 			<div class="column">
 				<div *ngIf="entry.image_url">
-					<h4>Image</h4>
+					<h4>Original Image</h4>
 					<img src="{{ entry.image_url }}" alt="" *ngIf="entry.image_url">
 				</div>
 			</div>

@@ -12,6 +12,10 @@ export class Utils {
 		let replacements = [];
 		let result = '';
 
+		if(!entry.data) {
+			return null;
+		}
+
 		for (let finding of entry.data) {
 			let position = finding['range'];
 			replacements = replacements.concat(position);
