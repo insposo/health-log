@@ -12,13 +12,15 @@ import {AddEntryComponent} from "./add-entry/add-entry.component";
 import {RouterModule} from "@angular/router";
 import {FileUploadModule} from "ng2-file-upload/ng2-file-upload";
 import {UserImageComponent} from "./core/user-image.component";
+import {EntryComponent} from "./entry/entry.component";
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		EntryListComponent,
 		AddEntryComponent,
-		UserImageComponent
+		UserImageComponent,
+		EntryComponent
 	],
 	imports: [
 		BrowserModule,

@@ -12,7 +12,6 @@ export class EntryListComponent implements OnInit {
 
 	private loading = true;
 	private entries:Entry[];
-	private showDetails:Boolean = false;
 
 	constructor(private entryService:EntryService, private router: Router) {
 	}
@@ -26,7 +25,7 @@ export class EntryListComponent implements OnInit {
 				},
 				error => {
 					// TODO error handling
-				})
+				});
 
 
 		setInterval(this.refreshPendingEntries(), 1000);
@@ -51,14 +50,6 @@ export class EntryListComponent implements OnInit {
 					this.entries[index] = entry;
 				}
 			})
-	}
-
-	getFormattedText(entry: Entry) {
-		return Utils.highlightTextFromData(entry);
-	}
-
-	toggleDetails() {
-		this.showDetails = !this.showDetails;
 	}
 
 	addEntry() {

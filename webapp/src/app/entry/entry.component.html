@@ -1,0 +1,57 @@
+<md-card class="entry">
+	<div class="header">
+		<div>
+			<span class="date">{{ entry.date | date }}</span>
+		</div>
+		<div class="image-wrapper">
+			<hl-user-image [user]="entry.author"></hl-user-image>
+			<span class="author">{{ entry.author.name }}</span>
+		</div>
+	</div>
+
+	<div *ngIf="entry.status == 'pending'" class="pending-wrapper">
+		<md-spinner></md-spinner>
+		<small>Data is processing</small>
+	</div>
+
+
+	<div *ngIf="entry.data">
+		<h3>Findings</h3>
+
+		<ul class="finding-list">
+			<li class="finding" *ngFor="let item of entry.data">
+				<md-icon svgSrc="/assets/images/{{ item.status }}.svg"></md-icon>
+				<div>
+					<p>{{ item.text }}</p>
+					<!--<a class="standard-link" href="{{ item.link }}" *ngIf="item.icd10">{{ item.icd10.id }}</a>-->
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="footer">
+		<button md-button color="accent" *ngIf="hasLanguages" [md-menu-trigger-for]="menu">
+			Language
+		</button>
+		<button md-button color="accent" *ngIf="entry.status == 'done'" (click)="toggleDetails()">{{ !showDetails ? 'More details' : 'Less details' }}</button>
+	</div>
+
+	<div class="more-details" *ngIf="showDetails">
+		<div class="column" *ngIf="entry.text">
+			<h4>Original</h4>
+			<p [innerHTML]="getFormattedText(entry)"></p>
+		</div>
+		<div class="column">
+			<div *ngIf="entry.image_url">
+				<h4>Original Image</h4>
+				<img src="{{ entry.image_url }}" alt="" *ngIf="entry.image_url">
+			</div>
+		</div>
+	</div>
+
+	<md-menu #menu="mdMenu">
+		<button *ngFor="let lang of languages" md-menu-item>{{ lang }}</button>
+		<button md-menu-item>jp_JP</button>
+		<button md-menu-item>nl_NL</button>
+	</md-menu>
+</md-card>
