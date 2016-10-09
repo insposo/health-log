@@ -14,13 +14,11 @@
 		<small>Data is processing</small>
 	</div>
 
-	<div *ngIf="entry.status == 'error'" style="text-align: center; text-transform: uppercase; color: red;">
-		Error. Could not get more information.
+	<div *ngIf="entry.status == 'error'" style="text-align: center;">
+		Could not get more information.
 	</div>
 
-	<div *ngIf="entry.data">
-		<h3>Findings</h3>
-
+	<div *ngIf="entry.data && entry.data.length > 0">
 		<ul class="finding-list">
 			<li class="finding" *ngFor="let item of entry.data">
 				<md-icon svgSrc="/assets/images/{{ item.status }}.svg"></md-icon>
@@ -32,16 +30,17 @@
 		</ul>
 	</div>
 
+
 	<div class="footer">
 		<button md-button color="accent" *ngIf="hasLanguages" [md-menu-trigger-for]="menu">
 			Language
 		</button>
-		<button md-button color="accent" *ngIf="entry.status != 'pending'" (click)="toggleDetails()">{{ !showDetails ? 'More details' : 'Less details' }}</button>
+		<button md-button color="accent" *ngIf="entry.status != 'pending' && showMoreDetailsButton" (click)="toggleDetails()">{{ !showDetails ? 'More details' : 'Less details' }}</button>
 	</div>
 
-	<div class="more-details" *ngIf="showDetails">
+	<div class="more-details" *ngIf="showDetails || !showMoreDetailsButton">
 		<div class="column" *ngIf="entry.text">
-			<h4>Original</h4>
+			<h4 *ngIf="showMoreDetailsButton">Original</h4>
 			<p [innerHTML]="getFormattedText(entry)"></p>
 		</div>
 		<div class="column">
