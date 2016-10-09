@@ -2,7 +2,7 @@ var LogEntry = require('../models/log_entry');
 var BaseRepository = require('./base_repository');
 var _ = require('lodash');
 var getIcd10Translation = require('../services/icd10_service');
-
+var s3Service = require('../services/s3_service');
 
 class LogEntryRepository extends BaseRepository{
 

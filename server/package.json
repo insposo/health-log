@@ -24,7 +24,10 @@
     "knex": "^0.12.2",
     "lodash": "^4.16.4",
     "mysql": "^2.11.1",
-    "node-env-file": "^0.1.8"
+    "node-env-file": "^0.1.8",
+    "aws-sdk": "latest",
+    "mime": "latest",
+    "mime-types": "latest"
   },
   "devDependencies": {
     "mocha": "^3.1.0",

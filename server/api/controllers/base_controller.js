@@ -1,5 +1,8 @@
 var repo = require('../repositories/log_entry_repository');
 var service = require('../services/ocr_service');
+var s3Service = require('../services/s3_service');
+var fs = require('fs');
+var mimeTypes = require('mime-types');
 
 class BaseController {
 
@@ -21,12 +24,27 @@ class BaseController {
 			});
 	}
 
+	downloadFile(req, res) {
+		var id = req.params.id;
+		s3Service.getUrl('uploads/' + id)
+			.then((url) => {
+				res.redirect(url);
+			})
+			.catch((err) => {
+				res.status(500).send(err);
+			});
+	}
+
 	createEntry(req, res) {
 		var file = req.files.file;
 		var text = req.body.text;
 		if (file) {
 			let id;
-			repo.saveFileEntry('athlete', file.path)
+			let stream = fs.createReadStream(file.path);
+			s3Service.uploadStream(file.path, stream, mimeTypes.lookup(file.path))
+				.then(() => {
+					return repo.saveFileEntry('athlete', file.path);
+				})
 				.then((entry) => {
 					id = entry.id;
 					res.send(entry);
