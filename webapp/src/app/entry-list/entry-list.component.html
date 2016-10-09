@@ -7,7 +7,7 @@
 	</button>
 </span>
 
-	<md-card *ngIf="!entries?.length && !loading" class="no-entry">
+	<md-card *ngIf="(!entries || !entries.length) && !loading" class="no-entry">
 		<p>No entries found</p>
 	</md-card>
 

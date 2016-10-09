@@ -8,16 +8,16 @@ import {Utils} from "../core/utils";
 })
 export class EntryComponent implements OnInit {
 
-	@Input() entry: Entry;
+	@Input() entry:Entry;
 	private showDetails = false;
 	private hasLanguages = false;
-	private languages: string[] = [];
+	private languages:string[] = [];
 
 	ngOnInit() {
 		this.hasLanguages = this.checkLanguages();
 	}
 
-	getFormattedText(entry: Entry) {
+	getFormattedText(entry:Entry) {
 		return Utils.highlightTextFromData(entry);
 	}
 
@@ -26,15 +26,19 @@ export class EntryComponent implements OnInit {
 	}
 
 	checkLanguages() {
-		return false;
-		/*
-		if (this.entry.data.icd10) {
-
-			let content = this.entry.data.icd10.content;
-			for(let lang of content) {
-
+		if (this.entry.data) {
+			for (let finding of this.entry.data) {
+				if (finding.icd10) {
+					let content = finding.icd10.content;
+					for (let lang in content) {
+						if (content.hasOwnProperty(lang) && lang != 'meta:model' && lang != 'msgid' && this.languages.indexOf(lang) == -1) {
+							this.languages.push(lang);
+						}
+					}
+				}
 			}
 		}
-		*/
+
+		return false;
 	}
 }
