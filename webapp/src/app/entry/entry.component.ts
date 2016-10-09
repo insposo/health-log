@@ -31,12 +31,19 @@ export class EntryComponent implements OnInit {
 	}
 
 	checkLanguages() {
+		let baseCounter = 0;
+
 		if (this.entry.data) {
-			this.languages.push("en");
+			this.languages.push("de");
+			baseCounter++;
 
 			for (let finding of this.entry.data) {
 				if (finding.icd10) {
 					let content = finding.icd10.content;
+
+					this.languages.push("en");
+					baseCounter++;
+
 					for (let lang in content) {
 						if (content.hasOwnProperty(lang) && lang != 'meta:model' && lang != 'msgid' && this.languages.indexOf(lang) == -1) {
 							this.languages.push(lang);
@@ -46,6 +53,6 @@ export class EntryComponent implements OnInit {
 			}
 		}
 
-		return (this.languages.length > 1);
+		return (this.languages.length != 0 && this.languages.length > baseCounter);
 	}
 }
