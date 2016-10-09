@@ -8,6 +8,7 @@ module.exports = {
 		database: process.env.DB_NAME,
 		charset: 'utf8'
 	},
+	pool: { min: 1, max: 2 },
 	migrations: {
 		directory: 'database/migrations'
 	},
