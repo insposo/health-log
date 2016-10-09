@@ -14,6 +14,9 @@
 		<small>Data is processing</small>
 	</div>
 
+	<div *ngIf="entry.status == 'error'" style="text-align: center; text-transform: uppercase; color: red;">
+		Error. Could not get more information.
+	</div>
 
 	<div *ngIf="entry.data">
 		<h3>Findings</h3>
@@ -33,7 +36,7 @@
 		<button md-button color="accent" *ngIf="hasLanguages" [md-menu-trigger-for]="menu">
 			Language
 		</button>
-		<button md-button color="accent" *ngIf="entry.status == 'done'" (click)="toggleDetails()">{{ !showDetails ? 'More details' : 'Less details' }}</button>
+		<button md-button color="accent" *ngIf="entry.status != 'pending'" (click)="toggleDetails()">{{ !showDetails ? 'More details' : 'Less details' }}</button>
 	</div>
 
 	<div class="more-details" *ngIf="showDetails">

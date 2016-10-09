@@ -6,8 +6,9 @@ export class Entry {
 	id: number;
 	status: string;
 	date: string;
-	author: User;
+	author: any;
 	text: string;
+	image_url: string;
 	data: EntryFinding[];
 
 }

@@ -56,7 +56,7 @@ export class BaseService {
 		return null
 	}
 
-	private constructApiUrl(url: string) {
+	public constructApiUrl(url: string) {
 		return this.baseUrl + url;
 	}
 

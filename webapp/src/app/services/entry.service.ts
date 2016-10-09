@@ -14,9 +14,34 @@ export class EntryService extends BaseService {
 	}
 
 	getEntries():Observable<Entry[]> {
-		//return this.get(this.pathEntries);
+		return this.get(this.pathEntries)
+			.map(entries => {
+				var theEntries = entries as Entry[];
+				theEntries.forEach(entry => {
+					switch(entry.author) {
+						case 'athlete':
+							entry.author = {
+								name: 'Matthias Steiner',
+								image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Matthias_Steiner_(weightlifter)_2.jpg/220px-Matthias_Steiner_(weightlifter)_2.jpg'
+							};
+							break;
+						case 'trainer':
+							entry.author = {
+								name: 'Arnold Schwarznegger',
+								image_url: 'https://pmcdeadline2.files.wordpress.com/2014/08/arnold-schwarzenegger-featured-image.jpg?w=630'
+							}
+					}
 
-		let entry = {
+					if(entry.image_url) {
+						entry.image_url = this.constructApiUrl('/' + entry.image_url);
+					}
+				});
+
+
+				return theEntries;
+			});
+
+		/*let entry = {
 			id: 1,
 			status: 'done',
 			date: '2016-01-01',
@@ -77,14 +102,14 @@ export class EntryService extends BaseService {
 				},
 				"link": "http://lmgtfy.com/?q=ICD10%3AC79.0"
 			}]
-		};
+		};*/
 
-		return Observable.of([
+		/*return Observable.of([
 			entry,
 			entry,
 			entry,
 			entry
-		] as Entry[])
+		] as Entry[])*/
 	}
 
 	getEntry(id:number):Observable<Entry> {

@@ -71,6 +71,13 @@ class LogEntryRepository extends BaseRepository{
 			status: LogEntryRepository.Status.done
 		});
 	}
+
+	entryFailed(id) {
+		return this.save({
+			id: id,
+			error: LogEntryRepository.Status.error
+		});
+	}
 }
 
 LogEntryRepository.Status = {
