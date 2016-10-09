@@ -23,7 +23,7 @@
 			<li class="finding" *ngFor="let item of entry.data">
 				<md-icon svgSrc="/assets/images/{{ item.status }}.svg"></md-icon>
 				<div>
-					<p>{{ item.text }}</p>
+					<p>{{ getTextForFinding(item) }}</p>
 					<!--<a class="standard-link" href="{{ item.link }}" *ngIf="item.icd10">{{ item.icd10.id }}</a>-->
 				</div>
 			</li>

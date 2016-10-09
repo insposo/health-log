@@ -13,6 +13,7 @@ export class EntryComponent implements OnInit {
 	private hasLanguages = false;
 	private languages: string[] = [];
 	private showMoreDetailsButton = true;
+	private currentLanguage: string;
 
 	ngOnInit() {
 		this.hasLanguages = this.checkLanguages();
@@ -54,5 +55,27 @@ export class EntryComponent implements OnInit {
 		}
 
 		return (this.languages.length != 0 && this.languages.length > baseCounter);
+	}
+
+	getTextForFinding(item) {
+		if(!this.currentLanguage) {
+			return item.text;
+		}
+
+		var text = item.icd10.content[this.currentLanguage];
+		var fallback = item.icd10.content['msgid'];
+		if(text) {
+			return text;
+		} else {
+			return fallback;
+		}
+	}
+
+	changeLanguage(code: string) {
+		if(code == 'de') {
+			this.currentLanguage = null;
+		} else {
+			this.currentLanguage = code;
+		}
 	}
 }
