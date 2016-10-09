@@ -4,6 +4,15 @@ hl-entry-list {
 	top: -100px;
 }
 
+.no-entry {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 10em;
+	color: $colorGrayMedium;
+	text-transform: uppercase;
+}
+
 .entry {
 	margin-bottom: 20px;
 	padding-bottom: 10px !important;

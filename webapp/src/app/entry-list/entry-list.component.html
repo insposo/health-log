@@ -1,6 +1,10 @@
 <div class="page-container">
 	<!--<md-spinner *ngIf="loading"></md-spinner>-->
 
+	<md-card *ngIf="!entries?.length" class="no-entry">
+		<p>No entries found</p>
+	</md-card>
+
 	<md-card *ngFor="let entry of entries" class="entry">
 		<div class="header">
 			<div>
