@@ -21,6 +21,11 @@ export class EntryComponent implements OnInit {
 		if(this.entry.data && !this.entry.data.length) {
 			this.showMoreDetailsButton = false;
 		}
+
+		setInterval(() => {
+			this.languages = [];
+			this.hasLanguages = this.checkLanguages();
+		}, 3000);
 	}
 
 	getFormattedText(entry:Entry) {

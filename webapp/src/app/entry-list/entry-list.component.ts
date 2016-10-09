@@ -17,11 +17,15 @@ export class EntryListComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.refreshEntries();
-
-		/*setInterval(() => {
-			this.refreshPendingEntries();
-		}, 2000);*/
+		this.entryService.getEntries()
+			.subscribe(
+				entries => {
+					this.entries = entries;
+					this.loading = false;
+				},
+				error => {
+					// TODO error handling
+				});
 
 		setInterval(() => {
 			this.refreshEntries();
@@ -32,35 +36,32 @@ export class EntryListComponent implements OnInit {
 		this.entryService.getEntries()
 			.subscribe(
 				entries => {
-					this.entries = entries;
-					this.loading = false;
+					entries.forEach((entry, index) => {
+						let existingEntry = this.getEntry(entry.id);
+						if(existingEntry) {
+							existingEntry.status = entry.status;
+							existingEntry.image_url = entry.image_url;
+							existingEntry.data = entry.data;
+							existingEntry.text = entry.text;
+						} else {
+							this.entries.unshift(entry);
+						}
+					});
 				},
 				error => {
 					// TODO error handling
 				});
 	}
 
-	refreshPendingEntries() {
-		if(!this.entries) {
-			return;
-		}
-
-		this.entries.forEach((entry, i) => {
-			if (entry.status == 'pending') {
-				this.refreshEntry(entry, i);
+	getEntry(id: number) {
+		var selected;
+		this.entries.forEach((entry) => {
+			if(entry.id == id) {
+				selected = entry;
 			}
 		});
-	}
 
-	refreshEntry(entry, index) {
-		this.entryService.getEntry(entry.id)
-			.subscribe(entry => {
-				if (entry.status !== 'pending') {
-					this.entries[index].status = entry.status;
-					this.entries[index].image_url = entry.image_url;
-					this.entries[index].data = entry.data;
-				}
-			})
+		return selected;
 	}
 
 	addEntry() {
