@@ -31,19 +31,33 @@ hl-entry-list {
 		}
 	}
 
-	.findings-table {
-		width: 100%;
-		text-align: left;
+	.pending-wrapper {
+		align-items: center;
+		text-align: center;
+		md-spinner {
+			margin-right: 10px;
+			display: inline-block;
+			vertical-align: middle;
+		}
 
-		td {
-			padding: .3em 0;
+		small {
+			color: $colorGrayMedium;
+			font-size: 12px;
+			display: inline-block;
+			vertical-align: middle;
 		}
 	}
 
 	.text-highlight {
 		background-color: #e8ff66;
-		padding: 0 .3em;
+		font-style: normal;
 	}
+
+	.footer {
+		padding-top: .5em;
+		text-align: right;
+	}
+
 
 	.more-details {
 		display: flex;

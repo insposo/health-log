@@ -32,6 +32,9 @@ export class EntryListComponent implements OnInit {
 	}
 
 	refreshPendingEntries() {
+		if(!this.entries) {
+			return;
+		}
 
 		this.entries.forEach((entry, i) => {
 			if (entry.status == 'pending') {
