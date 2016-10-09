@@ -46,6 +46,7 @@ class BaseController {
 				})
 				.catch((err) => {
 					console.error(err.stack);
+					return repo.entryFailed(id);
 				});
 		} else if (text) {
 			let id;
@@ -60,6 +61,7 @@ class BaseController {
 				})
 				.catch((err) => {
 					console.error(err.stack);
+					return repo.entryFailed(id);
 				});
 		} else {
 			res.status(400).send(JSON.stringify({works: 'nope'}));
