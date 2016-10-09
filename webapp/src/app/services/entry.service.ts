@@ -14,6 +14,7 @@ export class EntryService extends BaseService {
 	}
 
 	getEntries():Observable<Entry[]> {
+		//*
 		return this.get(this.pathEntries)
 			.map(entries => {
 				var theEntries = entries as Entry[];
@@ -40,8 +41,10 @@ export class EntryService extends BaseService {
 
 				return theEntries;
 			});
+		//*/
 
-		/*let entry = {
+		/*
+		let entry = {
 			id: 1,
 			status: 'done',
 			date: '2016-01-01',
@@ -102,14 +105,15 @@ export class EntryService extends BaseService {
 				},
 				"link": "http://lmgtfy.com/?q=ICD10%3AC79.0"
 			}]
-		};*/
+		};
 
-		/*return Observable.of([
+		return Observable.of([
 			entry,
 			entry,
 			entry,
 			entry
-		] as Entry[])*/
+		] as Entry[]);
+		//*/
 	}
 
 	getEntry(id:number):Observable<Entry> {
