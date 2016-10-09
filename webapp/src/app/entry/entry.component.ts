@@ -11,10 +11,15 @@ export class EntryComponent implements OnInit {
 	@Input() entry:Entry;
 	private showDetails = false;
 	private hasLanguages = false;
-	private languages:string[] = [];
+	private languages: string[] = [];
+	private showMoreDetailsButton = true;
 
 	ngOnInit() {
 		this.hasLanguages = this.checkLanguages();
+
+		if(this.entry.data && !this.entry.data.length) {
+			this.showMoreDetailsButton = false;
+		}
 	}
 
 	getFormattedText(entry:Entry) {

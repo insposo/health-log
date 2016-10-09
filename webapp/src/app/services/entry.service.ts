@@ -22,12 +22,12 @@ export class EntryService extends BaseService {
 						case 'athlete':
 							entry.author = {
 								name: 'Matthias Steiner',
-								image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Matthias_Steiner_(weightlifter)_2.jpg/220px-Matthias_Steiner_(weightlifter)_2.jpg'
+								image_url: 'http://polpix.sueddeutsche.com/bild/1.1631738.1363976522/940x528/gewichtheber-matthias-steiner-karriere-ende.jpg'
 							};
 							break;
 						case 'trainer':
 							entry.author = {
-								name: 'Arnold Schwarznegger',
+								name: 'You',
 								image_url: 'https://pmcdeadline2.files.wordpress.com/2014/08/arnold-schwarzenegger-featured-image.jpg?w=630'
 							}
 					}
