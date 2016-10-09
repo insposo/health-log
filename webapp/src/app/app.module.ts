@@ -24,7 +24,7 @@ import {UserImageComponent} from "./core/user-image.component";
 		BrowserModule,
 		FormsModule,
 		HttpModule,
-		MaterialModule,
+		MaterialModule.forRoot(),
 		RouterModule,
 		FileUploadModule,
 		routing

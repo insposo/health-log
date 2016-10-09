@@ -7,6 +7,15 @@
 			<div class="image-wrapper">
 				<hl-user-image [user]="entry.author"></hl-user-image>
 				<span class="author">{{ entry.author.name }}</span>
+
+				<button md-button [md-menu-trigger-for]="menu">
+					...
+				</button>
+				<md-menu #menu="mdMenu">
+					<button md-menu-item>en_ES</button>
+					<button md-menu-item>jp_JP</button>
+					<button md-menu-item>nl_NL</button>
+				</md-menu>
 			</div>
 		</div>
 		<div *ngIf="entry.status == 'pending'">
