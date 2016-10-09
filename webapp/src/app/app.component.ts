@@ -9,9 +9,9 @@ import {User} from "./models/user";
 export class AppComponent {
 
 	private user: User = {
-		image_url: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Michael_Phelps_Rio_Olympics_2016.jpg',
-		name: 'Michael Phelps'
-	}
+		name: 'Matthias Steiner',
+		image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Matthias_Steiner_(weightlifter)_2.jpg/220px-Matthias_Steiner_(weightlifter)_2.jpg'
+	};
 
 	constructor(private router: Router) {
 
