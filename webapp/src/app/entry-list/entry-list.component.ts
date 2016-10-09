@@ -17,6 +17,18 @@ export class EntryListComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.refreshEntries();
+
+		/*setInterval(() => {
+			this.refreshPendingEntries();
+		}, 2000);*/
+
+		setInterval(() => {
+			this.refreshEntries();
+		}, 3000);
+	}
+
+	refreshEntries() {
 		this.entryService.getEntries()
 			.subscribe(
 				entries => {
@@ -26,9 +38,6 @@ export class EntryListComponent implements OnInit {
 				error => {
 					// TODO error handling
 				});
-
-
-		setInterval(this.refreshPendingEntries(), 1000);
 	}
 
 	refreshPendingEntries() {
@@ -47,7 +56,9 @@ export class EntryListComponent implements OnInit {
 		this.entryService.getEntry(entry.id)
 			.subscribe(entry => {
 				if (entry.status !== 'pending') {
-					this.entries[index] = entry;
+					this.entries[index].status = entry.status;
+					this.entries[index].image_url = entry.image_url;
+					this.entries[index].data = entry.data;
 				}
 			})
 	}
