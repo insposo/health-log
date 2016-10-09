@@ -17,9 +17,5 @@ export class AppComponent {
 
 	}
 
-	addEntry() {
-		this.router.navigate(['/add']);
-	}
-
 
 }

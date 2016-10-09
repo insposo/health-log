@@ -1,6 +1,12 @@
 <div class="page-container">
 	<!--<md-spinner *ngIf="loading"></md-spinner>-->
 
+	<span class="app-action">
+	<button md-fab (click)="addEntry()">
+		<md-icon class="md-24">add</md-icon>
+	</button>
+</span>
+
 	<md-card *ngIf="!entries?.length" class="no-entry">
 		<p>No entries found</p>
 	</md-card>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EntryService} from "../services/entry.service";
 import {Entry} from "../models/entry";
 import {Utils} from "../core/utils";
+import {Router} from "@angular/router";
 
 @Component({
 	selector: 'hl-entry-list',
@@ -13,7 +14,7 @@ export class EntryListComponent implements OnInit {
 	private entries:Entry[];
 	private showDetails:Boolean = false;
 
-	constructor(private entryService:EntryService) {
+	constructor(private entryService:EntryService, private router: Router) {
 	}
 
 	ngOnInit() {
@@ -58,5 +59,9 @@ export class EntryListComponent implements OnInit {
 
 	toggleDetails() {
 		this.showDetails = !this.showDetails;
+	}
+
+	addEntry() {
+		this.router.navigate(['/add']);
 	}
 }
