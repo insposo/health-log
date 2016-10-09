@@ -5,6 +5,7 @@ module.exports.init = function (app) {
 	app.get('/entries', handle(controller.listEntries));
 	app.get('/entries/:id', handle(controller.getEntry));
 	app.post('/entries', handle(controller.createEntry));
+	app.get('/uploads/:id', handle(controller.downloadFile));
 
 };
 
